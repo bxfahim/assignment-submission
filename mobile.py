@@ -12,39 +12,36 @@ mobile_data = {
 }
 
 #  Your Code Starts from here
-# import random
+
+import random
+
 '''
 Recently Xiaomi Note 5 has been released. The price of this model is 300 USD which is 300 x 103.25 tk BDT. 
 It has manufactured and made in China.
-
 '''
 
 # print(type(mobile_data))
 mobile_data_list = mobile_data.get("data")
 # print(len(mobile_data_list))
-print(mobile_data_list)
+# print(mobile_data_list)
 # # price = mobile_data_list[0].values()
 # print(price)
-# print(type(price))
-# # new_price_int = int(price)
-# # print(new_price_int)
-# # print(type(new_price_int))
 
 for mobile_selling_data in mobile_data_list:
     price = mobile_selling_data.get("price")
+    USD = float(price.strip(' USD'))
+    bdt = round(USD * mobile_data.get("exchnage_rate"))
     name = mobile_selling_data.get("name")
-    made = mobile_selling_data.get("made")
+    manufactured_country = mobile_selling_data.get("made")
 
 
-    template = f'Recently {name} has been released.' \
-              f'The price of this model is {price} USD which is {price} tk BDT. ' \
-              f'It has manufactured and made in {made}.'
-    print(template)
+    template = [
+        f'Recently {name} has been released.The price of this model is {price} which is {bdt} tk BDT. It has manufactured and made in {manufactured_country}.',
+        f'The {name} was just recently released. This model costs {price}, which is equal to {bdt} tk BDT. It was created and produced in {manufactured_country}.',
+        f'In recent times, the {name} was unveiled. This model costs {price}, or {bdt} tk BDT. {manufactured_country} is where it was manufactured.'
+    ]
+    print(random.choice(template))
     print("*" * 7)
-
-
-
-
 
 
 

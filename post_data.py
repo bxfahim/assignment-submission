@@ -43,8 +43,8 @@ for title in post_data:
     titles = title.get("title").strip()
     # slug = titles.replace(' ','-')
     # print(titles, slug, sep = " === ")
-    # post_data[0].update({"slug": slug })
-    for slug in post_data:
+    # .update({"slug": slug })
+    for slug inpost_data[0] post_data:
         slug.update({"slug": titles.replace(' ','-')})
 
 print(post_data[0])
